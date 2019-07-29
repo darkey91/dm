@@ -1,0 +1,52 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+s 0 -> sec_first 0 ^
+s 1 -> sec_first 1 ^
+s _ -> ac _ ^
+sec_first 1 -> sec_second l >
+sec_first 0 -> sec_second o >
+sec_first o -> sec_first o >
+sec_first l -> sec_first l >
+sec_first _ -> to_begin _ <
+to_begin 0 -> to_begin 0 <
+to_begin 1 -> to_begin 1 <
+to_begin o -> to_begin o <
+to_begin l -> to_begin l <
+to_begin _ -> comp _ >
+to_begin ! -> to_begin ! <
+comp 0 -> comp_0 _ >
+comp l -> rj _ ^
+comp o -> rj _ ^
+comp ! -> last _ >
+last ! -> last _ >
+last _ -> ac _ >
+last o -> rj _ >
+last l -> rj _ >
+comp_0 ! -> comp_0 ! >
+comp_1 ! -> comp_1 ! >
+comp_0 1 -> comp_0 1 >
+comp_0 0 -> comp_0 0 >
+comp_0 l -> rj 1 ^
+comp_0 o -> to_begin ! <
+comp 1 -> comp_1 _ >
+comp_1 _ -> ac _ ^
+comp_1 1 -> comp_1 1 >
+comp_1 0 -> comp_1 0 >
+comp_1 l -> to_begin ! <
+comp_1 o -> rj 0 ^
+comp _ -> ac _ ^
+sec_second 0 -> to_sec_begin o <
+sec_second 1 -> to_sec_begin l <
+sec_second _ -> to_begin _ <
+to_sec_begin l -> to_sec_begin l <
+to_sec_begin o -> to_sec_begin o <
+to_sec_begin _ -> first _ >
+to_sec_begin 0 -> first 0 >
+to_sec_begin 1 -> first 1 >
+first o -> sec_first 0 >
+first l -> sec_first 1 >
+
+
+

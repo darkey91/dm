@@ -1,0 +1,37 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+s 0 -> s o > 
+s 1 -> s l >
+s + -> b_word + >
+b_word 0 -> b_word 0 >
+b_word 1 -> b_word 1 >
+b_word _ -> no_bit _ <
+b_word l -> b_word l >
+b_word o -> b_word o >
+b_word + -> b_word + >
+no_bit + -> fill _ <
+fill 0 -> fill 0 <
+fill 1 -> fill 1 <
+fill l -> fill 1 <
+fill o -> fill 0 <
+fill _ -> ac _ >
+no_bit 0 -> add_0 _ <
+add_0 0 -> add_0 0 < 
+add_0 1 -> add_0 1 <
+add_0 + -> add_0 + <
+add_0 l -> b_word 1 >
+add_0 o -> b_word 0 >
+add_0 _ -> b_word 0 > 
+no_bit 1 -> add_1 _ <
+add_1 1 -> add_1 1 <
+add_1 0 -> add_1 0 <
+add_1 + -> add_1 + <
+add_1 _ -> b_word 1 >
+add_1 o -> b_word 1 >
+add_1 l -> add_bit 0 <
+add_bit o -> b_word l >
+add_bit l -> add_bit o <
+add_bit _ -> b_word l >
+

@@ -1,0 +1,24 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+s ( -> s ( > 
+s ) -> s ) >
+s _ -> s0 ! <
+s0 ( -> s0 ( <
+s0 ) -> s0 ) <
+s0 _ -> open ! >
+open ( -> open ( >
+open ) -> close _ <
+open _ -> open _ >
+open ! ->  last _ < 
+close _ -> close _ <
+close ( -> open _ >
+close ! -> rj _ ^
+last ) -> rj _ ^
+last ( -> rj _ ^
+last _ -> last _ <
+last ! -> ac _ ^
+
+
+

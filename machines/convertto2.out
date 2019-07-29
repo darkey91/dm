@@ -1,0 +1,25 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+
+s 0 -> end o >
+s 1 -> end l > 
+s 2 -> end t >
+
+end 0 -> end o >
+end 1 -> end l >
+end 2 -> end t >
+end _ -> minus _ <
+
+minus o -> minus 2 <
+minus l -> plus o >
+minus t -> plus l > 
+minus ! -> clean ! >
+
+clean _ -> clean _ >
+clean ! -> ac _ >
+
+plus o -> plus 0 >
+plus l -> pl
+

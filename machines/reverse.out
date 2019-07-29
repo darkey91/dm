@@ -1,0 +1,25 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+s 0 -> s 0 > 
+s 1 -> s 1 >
+s _ -> to_first ! <
+to_first ! -> to_first ! <
+to_first 0 -> zero ! >
+zero ! -> zero ! >
+zero 0 -> zero 0 >
+zero 1 -> zero 1 >
+zero _ -> to_exc 0 <
+to_first 1 -> one ! >
+one 1 -> one 1 >
+one 0 -> one 0 >
+one ! -> one ! >
+one _ -> to_exc 1 < 
+to_exc 1 -> to_exc 1 <
+to_exc 0 -> to_exc 0 <
+to_exc ! -> to_first ! <
+to_first _ -> clear _ >
+clear ! -> clear _ >
+clear 0 -> ac 0 ^
+clear 1 -> ac 1 ^
